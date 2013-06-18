@@ -1,14 +1,15 @@
-package com.gu.config;
+package hu.meza.tools.config;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class OptionalConfigurationFile implements Configuration {
+public class RequiredConfigurationFile implements Configuration {
 	private final String resourceName;
 	private final Properties properties = new Properties();
 
-	public OptionalConfigurationFile(String resourceName) {
+
+	public RequiredConfigurationFile(String resourceName) {
 		this.resourceName = resourceName;
 	}
 
@@ -16,12 +17,12 @@ public class OptionalConfigurationFile implements Configuration {
 	public Properties properties() {
 		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(resourceName);
 		if (inputStream == null) {
-			return properties;
+			throw new RuntimeException("Could not load required configuration: " + resourceName);
 		}
 		try {
 			properties.load(inputStream);
 		} catch (IOException e) {
-			return properties;
+			throw new RuntimeException("Could not load required configuration: " + resourceName);
 		}
 		return properties;
 	}

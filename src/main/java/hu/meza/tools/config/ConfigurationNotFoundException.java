@@ -1,4 +1,4 @@
-package com.gu.config;
+package hu.meza.tools.config;
 
 public class ConfigurationNotFoundException extends RuntimeException {
 	public ConfigurationNotFoundException(String configKey) {

@@ -1,4 +1,4 @@
-package com.gu.config;
+package hu.meza.tools.config;
 
 import java.util.Properties;
 
