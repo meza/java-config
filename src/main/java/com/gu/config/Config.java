@@ -45,7 +45,7 @@ public class Config {
 		Properties toBeAdded = config.properties();
 
 		for (Map.Entry<Object, Object> entry : toBeAdded.entrySet()) {
-			addOverriding((String) entry.getValue(), (String) entry.getKey());
+			setProperty((String) entry.getValue(), (String) entry.getKey());
 		}
 	}
 
@@ -54,7 +54,7 @@ public class Config {
 
 		for (Map.Entry<Object, Object> entry : toBeAdded.entrySet()) {
 			final String key = String.format("%s.%s", namespace, (String) entry.getKey());
-			addOverriding((String) entry.getValue(), key);
+			setProperty((String) entry.getValue(), key);
 		}
 	}
 
@@ -104,13 +104,13 @@ public class Config {
 		return result;
 	}
 
-	private synchronized void addOverriding(String value, String key) {
+	private synchronized void setProperty(String value, String key) {
 		props.setProperty(key, value);
 	}
 
-	private synchronized void addNonOverriding(String key, String value) {
+	private void addNonOverriding(String key, String value) {
 		if (!props.containsKey(key)) {
-			props.setProperty(key, value);
+			setProperty(key, value);
 		}
 	}
 
