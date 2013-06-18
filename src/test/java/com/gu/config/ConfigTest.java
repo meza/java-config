@@ -198,7 +198,7 @@ public class ConfigTest {
 	}
 
 	@Test
-	public void whatHappensWhenEmpty() {
+	public void anExceptionShouldBeThrownWhenNotFindingASetting() {
 		final String configKey = "something";
 		try {
 			config.get(configKey);
