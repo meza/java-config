@@ -81,14 +81,6 @@ public class Config {
 		return getProperty(someSetting);
 	}
 
-	private String getProperty(String someSetting) {
-		final String result = props.getProperty(someSetting);
-		if (result == null) {
-			throw new ConfigurationNotFoundException(someSetting);
-		}
-		return result;
-	}
-
 	protected String higherOrder(String someSetting) {
 		if (parentConfig == null) {
 			return higherOrder.getProperty(someSetting);
@@ -102,6 +94,14 @@ public class Config {
 		}
 
 		return parentConfig.higherOrderHas(someSetting);
+	}
+
+	private String getProperty(String someSetting) {
+		final String result = props.getProperty(someSetting);
+		if (result == null) {
+			throw new ConfigurationNotFoundException(someSetting);
+		}
+		return result;
 	}
 
 	private synchronized void addOverriding(String value, String key) {
