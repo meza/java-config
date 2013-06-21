@@ -18,6 +18,7 @@ public class Config {
 	}
 
 	public void add(Configuration config) {
+		config.load();
 		Properties toBeAdded = config.properties();
 		for (Map.Entry<Object, Object> entry : toBeAdded.entrySet()) {
 			addNonOverriding((String) entry.getKey(), (String) entry.getValue());
@@ -26,6 +27,7 @@ public class Config {
 	}
 
 	public void add(Configuration config, String namespace) {
+		config.load();
 		Properties toBeAdded = config.properties();
 		for (Map.Entry<Object, Object> entry : toBeAdded.entrySet()) {
 			final String key = String.format("%s.%s", namespace, entry.getKey());
@@ -42,6 +44,7 @@ public class Config {
 	}
 
 	public void addOverriding(Configuration config) {
+		config.load();
 		Properties toBeAdded = config.properties();
 
 		for (Map.Entry<Object, Object> entry : toBeAdded.entrySet()) {
@@ -50,6 +53,7 @@ public class Config {
 	}
 
 	public void addOverriding(Configuration config, String namespace) {
+		config.load();
 		Properties toBeAdded = config.properties();
 
 		for (Map.Entry<Object, Object> entry : toBeAdded.entrySet()) {
@@ -59,6 +63,7 @@ public class Config {
 	}
 
 	public void addHighOrder(Configuration config) {
+		config.load();
 		Properties toBeAdded = config.properties();
 
 		for (Map.Entry<Object, Object> entry : toBeAdded.entrySet()) {

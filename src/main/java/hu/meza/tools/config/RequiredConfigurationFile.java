@@ -14,16 +14,22 @@ public class RequiredConfigurationFile implements Configuration {
 	}
 
 	@Override
-	public Properties properties() {
+	public boolean load() {
 		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(resourceName);
 		if (inputStream == null) {
 			throw new RuntimeException("Could not load required configuration: " + resourceName);
 		}
 		try {
 			properties.load(inputStream);
+			return true;
 		} catch (IOException e) {
 			throw new RuntimeException("Could not load required configuration: " + resourceName);
 		}
+
+	}
+
+	@Override
+	public Properties properties() {
 		return properties;
 	}
 }

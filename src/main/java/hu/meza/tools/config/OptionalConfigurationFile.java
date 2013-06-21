@@ -13,16 +13,21 @@ public class OptionalConfigurationFile implements Configuration {
 	}
 
 	@Override
-	public Properties properties() {
+	public boolean load() {
 		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(resourceName);
 		if (inputStream == null) {
-			return properties;
+			return false;
 		}
 		try {
 			properties.load(inputStream);
 		} catch (IOException e) {
-			return properties;
+			return false;
 		}
+		return true;
+	}
+
+	@Override
+	public Properties properties() {
 		return properties;
 	}
 }

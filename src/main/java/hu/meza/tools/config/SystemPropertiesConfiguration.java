@@ -4,10 +4,12 @@ import java.util.Properties;
 
 public class SystemPropertiesConfiguration implements Configuration {
 
-	private final Properties properties;
+	private Properties properties;
 
-	public SystemPropertiesConfiguration() {
+	@Override
+	public boolean load() {
 		properties = System.getProperties();
+		return true;
 	}
 
 	@Override
