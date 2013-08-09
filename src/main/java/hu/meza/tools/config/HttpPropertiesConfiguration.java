@@ -1,9 +1,9 @@
 package hu.meza.tools.config;
 
-import com.sun.org.apache.bcel.internal.util.ByteSequence;
 import hu.meza.tools.HttpCall;
 import hu.meza.tools.HttpClientWrapper;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -27,7 +27,7 @@ public class HttpPropertiesConfiguration implements Configuration {
 	public boolean load() {
 		HttpCall result = client.getFrom(url);
 
-		InputStream is = new ByteSequence(result.body().getBytes());
+		InputStream is = new ByteArrayInputStream(result.body().getBytes());
 
 		try {
 			props.load(is);
