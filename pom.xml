@@ -99,6 +99,7 @@
                 <version>1.4.4</version>
                 <extensions>true</extensions>
                 <configuration>
+                    <skipLocalStaging>true</skipLocalStaging>
                     <stagingProfileId>7edbe315063867</stagingProfileId>
                     <serverId>sonatype-nexus-staging</serverId>
                     <nexusUrl>https://oss.sonatype.org/service/local/staging/deploy/maven2/</nexusUrl>
