@@ -5,11 +5,10 @@ import hu.meza.tools.config.Configuration;
 import java.util.Properties;
 
 public class EnvironmentVariablesConfiguration implements Configuration {
-	private Properties properties;
+	private Properties properties = new Properties();
 
 	@Override
 	public boolean load() {
-		properties = new Properties();
 		properties.putAll(System.getenv());
 		return true;
 	}
