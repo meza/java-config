@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>config</artifactId>
     <name>Configuration Interface</name>
-    <version>0.3.1-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <description>A configuration interface that makes configuration playful</description>
     <url>https://github.com/meza/config</url>
