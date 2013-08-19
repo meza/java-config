@@ -1,7 +1,8 @@
-package hu.meza.tools.config;
+package hu.meza.tools.config.Loaders;
 
 import hu.meza.tools.HttpCall;
 import hu.meza.tools.HttpClientWrapper;
+import hu.meza.tools.config.Configuration;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -40,5 +41,10 @@ public class HttpPropertiesConfiguration implements Configuration {
 	@Override
 	public Properties properties() {
 		return props;
+	}
+
+	@Override
+	public String source() {
+		return url;
 	}
 }

@@ -2,6 +2,7 @@ package hu.meza.tools.config;
 
 import hu.meza.tools.HttpCall;
 import hu.meza.tools.HttpClientWrapper;
+import hu.meza.tools.config.Loaders.HttpPropertiesConfiguration;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;

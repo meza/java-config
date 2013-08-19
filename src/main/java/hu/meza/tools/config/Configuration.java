@@ -7,4 +7,6 @@ public interface Configuration {
 
 	Properties properties();
 
+	String source();
+
 }
