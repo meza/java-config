@@ -26,7 +26,11 @@ public class Optional implements Configuration {
 
 	@Override
 	public boolean load() {
-		return config.load();
+		try {
+			return config.load();
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override

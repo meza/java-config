@@ -25,7 +25,9 @@ public class Required implements Configuration {
 	@Override
 	public boolean load() {
 		boolean success = config.load();
-
+		if (!success) {
+			throw new CouldNotLoadConfigurationSource(config.source());
+		}
 		return success;
 	}
 
