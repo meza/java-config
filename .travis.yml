@@ -6,6 +6,8 @@ after_script: "mvn deploy --settings settings.xml"
 jdk:
   - openjdk7
   - oraclejdk7
+  - openjdk6
+  - oraclejdk6
 
 env:
   global:
