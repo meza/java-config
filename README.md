@@ -7,7 +7,8 @@ in [this post](http://www.meza.hu/2013/08/configuration-done-right.html) so I wi
 Basic usage
 ===========
 
-To get the best value out of this lib with the least amount of effort, use:
+To get the best value out of this lib with the least amount of effort, use this as it is:
+(and add your own configuration directives)
 
 ```java
 import hu.meza.tools.config.Config;
@@ -24,14 +25,9 @@ public class Configuration {
 	public Configuration() {
 		config.addHighOrder(new SystemPropertiesConfiguration());
 
-		try {
-			String configFilename = config.get("config");
-			File file = new File(configFilename);
-			config.add(new Required(file));
-		} catch (ConfigurationNotFoundException notFound) {
-			File file = new File("config.properties");
-			config.add(new Required(file));
-		}
+		String configFilename = config.get("config", "config.properties");
+		File file = new File(configFilename);
+		config.add(new Required(file));
 	}
 
 	public String someConfiguration() {
