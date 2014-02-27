@@ -36,6 +36,37 @@ public class ConfigTest {
 	}
 
 	@Test
+	public void shouldReturnDefault() {
+		String testKey = randomString();
+		String defaultValue = randomString();
+		String normalValue = randomString();
+
+		Mockito.when(configuration.properties()).thenReturn(new Properties());
+		config.add(configuration);
+
+		String actual = config.get(testKey, defaultValue);
+
+		Assert
+			.assertEquals("The default value should've been returned if present and the key does not exists",
+				defaultValue, actual);
+	}
+
+	@Test
+	public void shouldReturnNormalWithDefault() {
+		String testKey = randomString();
+		String defaultValue = randomString();
+		String normalValue = randomString();
+
+		Mockito.when(configuration.properties()).thenReturn(testProperties(testKey, normalValue));
+		config.add(configuration);
+
+		String actual = config.get(testKey, defaultValue);
+
+		Assert.assertEquals("The proper value should've been returned instead of the default", normalValue,
+			actual);
+	}
+
+	@Test
 	public void shouldHandleNamespaces() {
 		String testKey = randomString();
 		String testValue = randomString();

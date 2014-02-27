@@ -86,6 +86,14 @@ public class Config {
 		return getProperty(someSetting);
 	}
 
+	public String get(String testKey, String defaultValue) {
+		try {
+			return get(testKey);
+		} catch (ConfigurationNotFoundException notFound) {
+			return defaultValue;
+		}
+	}
+
 	protected String higherOrder(String someSetting) {
 		if (parentConfig == null) {
 			return higherOrder.getProperty(someSetting);
