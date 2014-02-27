@@ -3,5 +3,5 @@ script: mvn verify
 jdk:
   - openjdk7
   - oraclejdk7
-  - openjdk6
-  - oraclejdk6
+  - openjdk8
+  - oraclejdk8
