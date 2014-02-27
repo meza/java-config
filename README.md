@@ -1,11 +1,27 @@
-Configuration
-=============
+# Configuration
+
 
 the purpose and some advanced usage of this library is outlined
 in [this post](http://www.meza.hu/2013/08/configuration-done-right.html) so I will not duplicate it here.
 
-Basic usage
-===========
+# Basic usage
+
+## Installation
+
+### Maven
+```
+<dependency>
+	<groupId>hu.meza.tools</groupId>
+    <artifactId>config</artifactId>
+    <version>[1.1.0,)</version>
+</dependency>
+```
+
+### Others
+
+Check out instructions [on Maven central](http://search.maven.org/#browse|859073003)
+
+## Usage for the lazy
 
 To get the best value out of this lib with the least amount of effort, use this as it is:
 (and add your own configuration directives)
